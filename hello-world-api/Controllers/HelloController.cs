@@ -13,7 +13,6 @@ namespace hello_world_api.Controllers
         [HttpGet]
         public string Get()
         {
-            var ex = new Exception();
             return "Hello world!";
         }
 
