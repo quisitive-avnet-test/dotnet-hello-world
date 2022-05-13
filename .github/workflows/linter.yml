@@ -30,8 +30,99 @@ jobs:
           # Optional SDK version(s) to use. If not provided, will install global.json version when available. Examples: 2.2.104, 3.1, 3.1.x
           dotnet-version: 3.1
       - run: dotnet tool install -g dotnet-format
-      - name: dotnet-format
+      
+      - name: Lint Action
         # You may pin to the exact commit or the version.
-        # uses: xt0rted/dotnet-format@0cf110fed823231b56a2e6fdf8e5d62dc34c538b
-        uses: xt0rted/dotnet-format@v1.2.0
-    
+        # uses: wearerequired/lint-action@2fe6593ac19ccad08133cf11685d5051fa94bbba
+        uses: wearerequired/lint-action@v2.0.0
+        with:
+          # Whether the workflow run should also fail when linter failures are detected
+          continue_on_error: true # optional, default is true
+          # Whether linters should try to fix code style issues automatically
+          auto_fix: false # false optional, default is false
+          # Whether to commit and push the changes made by auto_fix
+          commit: false # optional, default is true
+          # Bypass the pre-commit and pre-push git hooks
+          git_no_verify: false # optional, default is false
+          # Username for auto-fix commits
+          #git_name: # optional, default is Lint Action
+          # Email address for auto-fix commits
+          #git_email: # optional, default is lint-action@samuelmeuli.com
+          # Template for auto-fix commit messages. The "${linter}" variable can be used to insert the name of the linter which has created the auto-fix
+          #commit_message: # optional, default is Fix code style issues with ${linter}
+          # Template for the name of the check run. The "${linter}" and "${dir}" variables can be used to insert the name and directory of the linter.
+          #check_name: # optional, default is ${linter}
+          # Whether the check run should conclude with a neutral status instead of success when the linter finds only warnings
+          #neutral_check_on_warning: # optional, default is false
+          # Enable or disable stylelint checks
+          stylelint: false # optional, default is false
+          # Additional arguments to pass to the linter
+          #stylelint_args: # optional, default is 
+          # Directory where the stylelint command should be run
+          #stylelint_dir: # optional
+          # Extensions of files to check with stylelint
+          #stylelint_extensions: # optional, default is css
+          # Shell command to prepend to the linter command
+          #stylelint_command_prefix: # optional, default is 
+          # Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if "auto_fix" is set to `true` as well
+          #stylelint_auto_fix: # optional, default is true
+          # Enable or disable gofmt checks
+          #gofmt: # optional, default is false
+          # Additional arguments to pass to the linter
+          #gofmt_args: # optional, default is 
+          # Directory where the gofmt command should be run
+          #gofmt_dir: # optional
+          # Extensions of files to check with gofmt
+          #gofmt_extensions: # optional, default is go
+          # Shell command to prepend to the linter command
+          #gofmt_command_prefix: # optional, default is 
+          # Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if "auto_fix" is set to `true` as well
+          #gofmt_auto_fix: # optional, default is true
+          # Enable or disable golint checks
+          #golint: # optional, default is false
+          # Additional arguments to pass to the linter
+          #golint_args: # optional, default is 
+          # Directory where the golint command should be run
+          #golint_dir: # optional
+          # Extensions of files to check with golint
+          #golint_extensions: # optional, default is go
+          # Shell command to prepend to the linter command
+          #golint_command_prefix: # optional, default is 
+          # Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if "auto_fix" is set to `true` as well
+          #golint_auto_fix: # optional, default is false
+          # Enable or disable ESLint checks
+          eslint: false # optional, default is false
+          # Additional arguments to pass to the linter
+          #eslint_args: # optional, default is 
+          # Directory where the ESLint command should be run
+          #eslint_dir: # optional
+          # Extensions of files to check with ESLint
+          eslint_extensions: js,ts # optional, default is js
+          # Shell command to prepend to the linter command. Will default to `npx --no-install` for NPM and `yarn run --silent` for Yarn.
+          #eslint_command_prefix: # optional, default is 
+          # Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if "auto_fix" is set to `true` as well
+          #eslint_auto_fix: # optional, default is true
+          # Enable or disable Prettier checks
+          prettier: false # optional, default is false
+          # Additional arguments to pass to the linter
+          #prettier_args: # optional, default is 
+          # Directory where the Prettier command should be run
+          #prettier_dir: # optional
+          # Extensions of files to check with Prettier
+          #prettier_extensions: # optional, default is css,html,js,json,jsx,md,sass,scss,ts,tsx,vue,yaml,yml
+          # Shell command to prepend to the linter command. Will default to `npx --no-install` for NPM and `yarn run --silent` for Yarn.
+          #prettier_command_prefix: # optional, default is 
+          # Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if "auto_fix" is set to `true` as well
+          #prettier_auto_fix: # optional, default is true          
+          # Enable or disable dotnet-format checks
+          dotnet_format: true # optional, default is false
+          # Additional arguments to pass to the linter
+          #dotnet_format_args: # optional, default is 
+          # Directory where the dotnet-format command should be run
+          dotnet_format_dir: . # optional
+          # Extensions of files to check with dotnet-format
+          #dotnet_format_extensions: # optional, default is cs
+          # Shell command to prepend to the linter command
+          #dotnet_format_command_prefix: # optional, default is 
+          # Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if "auto_fix" is set to `true` as well
+          #dotnet_format_auto_fix: # optional, default is true
