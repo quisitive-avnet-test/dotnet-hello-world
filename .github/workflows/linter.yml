@@ -52,10 +52,10 @@ jobs:
           # The files to exclude, delimited by space.
           #exclude: # optional
           # Removes whitespaces according to formatting rules.
-          #fix-whitespace: # optional
+          fix-whitespace: true # optional
           # Fixes styles from third-party analyzers. More on https://github.com/dotnet/format/blob/main/docs/3rd-party-analyzers.md
-          #fix-analyzers-level: # optional
+          fix-analyzers-level: info # optional
           # Fixes styles according to formating rules.
-          #fix-style-level: # optional
+          fix-style-level: info # optional
           # Sets the logging verbosity of the dotnet format process. Allowed values are q[uiet], m[inimal], n[ormal], d[etailed], and diag[nostic]
           logLevel: d # optional
