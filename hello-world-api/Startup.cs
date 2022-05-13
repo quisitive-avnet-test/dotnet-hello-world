@@ -34,7 +34,7 @@ namespace hello_world_api
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseHttpsRedirection();            
+            app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints => endpoints.MapControllers());
